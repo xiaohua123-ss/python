@@ -10,6 +10,7 @@ from ship import Ship
 
 
 def run_game():
+    username = login.great_user()
     pygame.init()
     ai = Settings()
     screen = pygame.display.set_mode((ai.screen_width, ai.screen_height))
@@ -17,8 +18,8 @@ def run_game():
     bullets = Group()
     aliens = Group()
     gf.create_fleet(ai, screen, ship, aliens)
-    stats = Gamestats(ai)
-    sb = Scoreboard(ai, screen, stats)
+    stats = Gamestats(ai,username)
+    sb = Scoreboard(ai, screen, stats, username)
 
     pygame.display.set_caption("Alien Invasion")
     play_button = Button(ai, screen, "play")
@@ -34,5 +35,4 @@ def run_game():
         gf.update_screen(ai, screen, stats, sb, ship, aliens, bullets, play_button)
 
 
-username=login.great_user()
 run_game()

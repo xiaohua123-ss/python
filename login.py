@@ -76,6 +76,7 @@ def great_user():
         code = get_stored_code(code_file)
         if code:
             verify_code(code)
+
         else:
             setup_code(code_file)
     else:
@@ -87,4 +88,4 @@ def great_user():
     return username
 
 
-great_user()
+
